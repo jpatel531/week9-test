@@ -309,4 +309,15 @@ end
 # at the end.
 # (there's no RSpec test for this one)
 def ninety_nine_bottles_of_beer
+	bottles = (0..99).to_a.reverse.map do |number|
+		if number == 1
+			"#{number} bottle of beer on the wall, #{number} bottle of beer. Take one down and pass it around, no more bottles of beer on the wall."
+		elsif number == 0
+			"No more bottles of beer on the wall, no more bottles of beer. Go to the store and buy some more, 99 bottles of beer on the wall."
+		else
+		"#{number} bottles of beer on the wall, #{number} bottles of beer. Take one down and pass it around, #{number - 1} bottles of beer on the wall."
+		end
+	end
+	bottles.each {|bottle| puts bottle}
+	true
 end
