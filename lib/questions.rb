@@ -283,6 +283,23 @@ end
 # go from 1 to 100
 # (there's no RSpec test for this one)
 def fizzbuzz_without_modulo
+	hash = Hash.new
+	(1..100).to_a.each { |num| hash[num] = num}
+	multiples_of_three = []
+	multiples_of_five = []
+	threes = 0
+	fives = 0
+	until threes == 99
+		threes += 3
+		multiples_of_three << threes
+	end
+	until fives == 100
+		fives += 5
+		multiples_of_five << fives
+	end
+	multiples_of_three.each { |three| hash[three] = "Fizz" }
+	multiples_of_five.each { |five| hash[five] = (hash[five] == "Fizz") ? "FizzBuzz" : "Buzz" }
+	return hash
 end
 
 # print the lyrics of the song 99 bottles of beer on the wall
